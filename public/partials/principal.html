@@ -1,0 +1,22 @@
+<p ng-show="mensagem.length" class="alert alert-info">{{ mensagem }}</p>
+
+<div class="mdl-grid">
+	<form action="#" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
+		<div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input" type="text" ng-model="filtro" ng-model-options="{ debounce: 300 }" id="filtrar">
+			<label class="mdl-textfield__label" for="filtrar">Filtrar pelo título da foto...</label>
+		</div>
+	</form>
+</div>
+
+<div class="lista mdl-grid">	
+
+	<meu-painel class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet painel-animado" ng-repeat="foto in fotos | filter: filtro" id="{{foto._id}}" titulo="{{foto.titulo}}" descricao="{{foto.descricao}}">
+
+		<minha-foto url="{{foto.url}}" alt="{{foto.titulo}}"></minha-foto>
+
+	</meu-painel>
+
+	<a href="fotos/new" class="add mdl-button mdl-js-button mdl-button--fab mdl-button--colored"><i class="material-icons">add</i></a>
+
+</div>
